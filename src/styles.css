@@ -5,13 +5,36 @@
   text-align: center;
 }
 
+.content {
+  display: grid;
+  place-items: center;
+}
+
+.datepicker-group {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 5px;
+}
+
+.datepicker-group > select {
+  padding: 5px 2px;
+  margin: 10px 0px;
+  border-radius: 5px;
+}
+
 .date-row {
   padding: 8px 20px;
   display: grid;
   grid-gap: 20px;
   grid-auto-flow: column;
-  grid-template-columns: 1fr 5fr;
-  text-align: left;
+  border-radius: 10px;
+}
+
+.date-row:hover,
+.date-row:focus {
+  transform: scale(1.1);
+  background-color: rgb(194, 194, 194);
+  box-shadow: 0px 0px 0px 2px rgb(78, 78, 78);
 }
 
 .title {
@@ -19,16 +42,4 @@
   font-weight: bolder;
   text-align: left;
   padding: 0px 20px;
-}
-
-.input-group {
-  display: grid;
-  grid-gap: 10px;
-  grid-auto-flow: column;
-  padding: 0px 20px 20px;
-  place-items: center;
-}
-
-.input-group > input {
-  width: 120px;
 }
