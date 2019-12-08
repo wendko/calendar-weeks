@@ -42,6 +42,11 @@ const Calendar = () => {
   return (
     <div>
       <p className="title"> Calendar Weeks </p>
+      <div className="input-group">
+        <input placeholder="start: 2019-12-09" />
+        -
+        <input placeholder="end: 2020-12-31" />
+      </div>
       <div className="date-list">
         {calendarWeeks.map((c, i) => (
           <div
