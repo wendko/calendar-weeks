@@ -22,6 +22,10 @@
   border-radius: 5px;
 }
 
+.datepicker-label {
+  margin: 0;
+}
+
 .date-row {
   padding: 8px 20px;
   display: grid;

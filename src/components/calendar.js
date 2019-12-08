@@ -48,12 +48,6 @@ const DateInput = props => {
     .split("-")
     .map(x => +x);
 
-  console.log(
-    moment()
-      .month("January")
-      .format("M")
-  );
-
   const setDay = e => {
     const day = e.target.value.padStart(2, 0);
     const date = props.date.split("-");
@@ -75,37 +69,40 @@ const DateInput = props => {
   };
 
   return (
-    <form className="datepicker-group">
-      <select onChange={setDay}>
-        {days.map(day => (
-          <option key={day} value={day} selected={day === initialDay}>
-            {day}
-          </option>
-        ))}
-      </select>
-      <select onChange={setMonth}>
-        {months.map(month => (
-          <option
-            key={month}
-            value={month}
-            selected={
-              +moment()
-                .month(month)
-                .format("M") === initialMonth
-            }
-          >
-            {month}
-          </option>
-        ))}
-      </select>
-      <select onChange={setYear}>
-        {years.map(year => (
-          <option key={year} value={year} selected={year === initialYear}>
-            {year}
-          </option>
-        ))}
-      </select>
-    </form>
+    <>
+      <h5 class="datepicker-label">{props.label}</h5>
+      <form className="datepicker-group">
+        <select onChange={setDay}>
+          {days.map(day => (
+            <option key={day} value={day} selected={day === initialDay}>
+              {day}
+            </option>
+          ))}
+        </select>
+        <select onChange={setMonth}>
+          {months.map(month => (
+            <option
+              key={month}
+              value={month}
+              selected={
+                +moment()
+                  .month(month)
+                  .format("M") === initialMonth
+              }
+            >
+              {month}
+            </option>
+          ))}
+        </select>
+        <select onChange={setYear}>
+          {years.map(year => (
+            <option key={year} value={year} selected={year === initialYear}>
+              {year}
+            </option>
+          ))}
+        </select>
+      </form>
+    </>
   );
 };
 
@@ -126,15 +123,15 @@ const DateList = props => (
 );
 
 const Calendar = () => {
-  const [startDate, setStartDate] = useState("2019-12-09");
+  const [startDate, setStartDate] = useState(moment().format("YYYY-MM-DD"));
   const [endDate, setEndDate] = useState("2020-12-31");
 
   return (
     <div className="content">
       <p className="title"> Calendar Weeks </p>
-      <DateInput setDate={setStartDate} date={startDate} />
+      <DateInput label="start date" setDate={setStartDate} date={startDate} />
       <DateList startDate={startDate} endDate={endDate} />
-      <DateInput setDate={setEndDate} date={endDate} />
+      <DateInput label="end date" setDate={setEndDate} date={endDate} />
     </div>
   );
 };
