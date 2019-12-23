@@ -1,15 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Calendar from "./components/calendar.js";
+import CalendarWeeks from './components/CalendarWeeks';
 
 import "./styles.css";
 
 function App() {
-  return (
-    <div className="App">
-      <Calendar />
-    </div>
-  );
+    return (
+        <>
+            {/* <input type="checkbox" className="theme-toggle" /> */}
+            <div className="app">
+                <CalendarWeeks />
+            </div>
+        </>
+    );
 }
 
 const rootElement = document.getElementById("root");

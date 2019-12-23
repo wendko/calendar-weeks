@@ -1,49 +1,78 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+:root {
+    --color-select-background-dark: rgb(255, 53, 127);
+    --color-select-text-dark: rgb(255, 219, 225);
+    --color-background-dark: rgb(49, 17, 23);
+    --color-text-dark:  rgb(58, 34, 43);
 
-.App {
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
+    --color-select-background-light: rgb(58, 34, 43);
+    --color-select-text-light: rgb(255, 219, 225);
+    --color-background-light: rgb(255, 219, 225);
+    --color-text-light: rgb(58, 34, 43);
+
+    --color-select-background: var(--color-select-background-light);
+    --color-select-text: var(--color-select-text-light);
+    --color-background: var(--color-background-light);
+    --color-text: var(--color-text-light);
 }
 
-.content {
-  display: grid;
-  place-items: center;
+.app {
+    font-family: "Consolas";
+    text-align: center;
+    display: grid;
+    height: 100vh;
+    grid-gap: 2em;
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
 
-.datepicker-group {
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: 5px;
+select {
+    background-color: var(--color-select-background);
+    color: var(--color-select-text);
+    font-size: 2em;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-family: "Consolas";
 }
 
-.datepicker-group > select {
-  padding: 5px 2px;
-  margin: 10px 0px;
-  border-radius: 5px;
+.section:nth-child(1) {
+    align-self: end;
 }
 
-.datepicker-label {
-  margin: 0;
+.section:nth-child(2) {
+    align-self: start;
 }
 
-.date-row {
-  padding: 8px 20px;
-  display: grid;
-  grid-gap: 20px;
-  grid-auto-flow: column;
-  border-radius: 10px;
+.description > p {
+    font-size: 35px;
+    margin: 10px;
+    text-transform: lowercase;
 }
 
-.date-row:hover,
-.date-row:focus {
-  transform: scale(1.1);
-  background-color: rgb(194, 194, 194);
-  box-shadow: 0px 0px 0px 2px rgb(78, 78, 78);
+.picker-group > * {
+    margin: 10px
 }
 
-.title {
-  font-size: 1.5em;
-  font-weight: bolder;
-  text-align: left;
-  padding: 0px 20px;
+.theme-toggle {
+    padding: 10px;
+    background-color: black;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 8px;
+}
+
+.theme-toggle .app {
+    --color-select-background: var(--color-select-background-light);
+    --color-select-text: var(--color-select-text-light);
+    --color-background: var(--color-background-light);
+    --color-text: var(--color-text-light);
+}
+
+
+.theme-toggle:checked .app {
+    --color-select-background: var(--color-select-background-dark);
+    --color-select-text: var(--color-select-text-dark);
+    --color-background: var(--color-background-dark);
+    --color-text: var(--color-text-dark);
 }
