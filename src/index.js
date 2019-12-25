@@ -7,7 +7,7 @@ import "./styles.css";
 function App() {
     return (
         <>
-            {/* <input type="checkbox" className="theme-toggle" /> */}
+            <input type="checkbox" className="theme-toggle" />
             <div className="app">
                 <CalendarWeeks />
             </div>

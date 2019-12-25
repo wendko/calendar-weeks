@@ -1,28 +1,83 @@
 :root {
-    --color-select-background-dark: rgb(255, 53, 127);
-    --color-select-text-dark: rgb(255, 219, 225);
-    --color-background-dark: rgb(49, 17, 23);
-    --color-text-dark:  rgb(58, 34, 43);
+    --color-select-background-dark: rgb(245, 172, 199);
+    --color-select-text-dark: rgb(55, 44, 61);
+    --color-select-focus-dark: rgb(255, 46, 203);
+    --color-background-dark: rgb(55, 44, 61);
+    --color-text-dark:  rgb(245, 172, 199);
+    --color-toggle-dark:  rgb(245, 172, 199);
 
-    --color-select-background-light: rgb(58, 34, 43);
+    --color-select-background-light: rgb(178, 136, 184);
     --color-select-text-light: rgb(255, 219, 225);
+    --color-select-focus-light: rgb(148, 75, 158);
     --color-background-light: rgb(255, 219, 225);
-    --color-text-light: rgb(58, 34, 43);
+    --color-text-light: rgb(148, 75, 158);
+    --color-toggle-light:  rgb(178, 136, 184);
 
     --color-select-background: var(--color-select-background-light);
     --color-select-text: var(--color-select-text-light);
+    --color-select-focus: var(--color-select-focus-light);
     --color-background: var(--color-background-light);
     --color-text: var(--color-text-light);
+    --color-toggle: var(--color-toggle-light);
 }
 
-.app {
+body {
+    margin: 0;
     font-family: "Consolas";
+}
+
+.theme-toggle {
+    width: 50px;
+    height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: fixed;
+    right: 0;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.theme-toggle + .app {
     text-align: center;
     display: grid;
     height: 100vh;
     grid-gap: 2em;
     background-color: var(--color-background);
     color: var(--color-text);
+}
+
+
+.theme-toggle::after {
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    transition: all 0.2s;
+    transform: translate(15px, 15px);
+    background-color: var(--color-toggle-light);
+}
+
+.theme-toggle:checked::after {
+    background-color: var(--color-toggle-dark);
+}
+
+.theme-toggle + .app {
+    --color-select-background: var(--color-select-background-light);
+    --color-select-text: var(--color-select-text-light);
+    --color-background: var(--color-background-light);
+    --color-text: var(--color-text-light);
+    --color-toggle: var(--color-toggle-light);
+}
+
+.theme-toggle:checked + .app {
+    --color-select-background: var(--color-select-background-dark);
+    --color-select-text: var(--color-select-text-dark);
+    --color-background: var(--color-background-dark);
+    --color-text: var(--color-text-dark);
+    --color-toggle: var(--color-toggle-dark);
 }
 
 select {
@@ -33,6 +88,10 @@ select {
     border-radius: 8px;
     padding: 5px 10px;
     font-family: "Consolas";
+}
+
+select:hover, select:focus, .theme-toggle:hover, .theme-toggle:focus {
+    box-shadow: 0px 0px 0px 4px var(--color-select-focus);
 }
 
 .section:nth-child(1) {
@@ -51,28 +110,4 @@ select {
 
 .picker-group > * {
     margin: 10px
-}
-
-.theme-toggle {
-    padding: 10px;
-    background-color: black;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    border-radius: 8px;
-}
-
-.theme-toggle .app {
-    --color-select-background: var(--color-select-background-light);
-    --color-select-text: var(--color-select-text-light);
-    --color-background: var(--color-background-light);
-    --color-text: var(--color-text-light);
-}
-
-
-.theme-toggle:checked .app {
-    --color-select-background: var(--color-select-background-dark);
-    --color-select-text: var(--color-select-text-dark);
-    --color-background: var(--color-background-dark);
-    --color-text: var(--color-text-dark);
 }
