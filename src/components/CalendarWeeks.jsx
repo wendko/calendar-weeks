@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import moment from "moment";
-import { format } from '../services/dateService';
 import DatePicker from './DatePicker';
 import MonthPicker from './MonthPicker';
 import YearPicker from './YearPicker';
+
+const adjustDate = date => date.add(1, "day").format("DD MMM")
 
 const CalendarWeeks = () => {
     const [currentMoment, setCurrentMoment] = useState(moment());
@@ -33,8 +34,9 @@ const CalendarWeeks = () => {
         </div>
 
         <div className="section description">
-            <p>Day {currentMoment.dayOfYear()} Week {currentMoment.week()}</p>
-            <p>{format(currentMoment.startOf("week"))} - {format(currentMoment.endOf("week"))}</p>
+            <p>Day {currentMoment.dayOfYear()}</p>
+            <p>Week {currentMoment.week()}</p>
+            <p>{adjustDate(currentMoment.startOf("week"))} - {adjustDate(currentMoment.endOf("week"))}</p>
         </div>
     </>
 }
