@@ -1,8 +1,4 @@
-# Calendar Weeks
-A calendar week viewer.      
+# Date information
+View the day and week of the year for a given date.  
 
-Useful for when you want to know which week is it.    
-
-Using [moment.js](https://momentjs.com/).     
-
-See it here: https://codesandbox.io/s/github/wendko/calendar-weeks
+Using [moment.js](https://momentjs.com/) and [React](https://reactjs.org/).
