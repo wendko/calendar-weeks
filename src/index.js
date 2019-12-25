@@ -11,6 +11,12 @@ function App() {
             <div className="app">
                 <CalendarWeeks />
             </div>
+            <footer>
+                By <a href="https://www.wendko.com" target="_blank">wendko</a>.
+                Created with
+                &nbsp;<a href="https://momentjs.com/" target="_blank">momentjs</a>
+                &nbsp;and&nbsp;<a href="https://reactjs.org/" target="_blank">React</a>.
+            </footer>
         </>
     );
 }
