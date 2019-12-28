@@ -12,7 +12,7 @@ const MonthPicker = ({ date, currentMonth, year, setCurrentMoment }) => {
             <option
                 key={month}
                 value={month}>
-                {month}
+                {month.slice(0, 3)}
             </option>
         ))}
     </select>

@@ -34,6 +34,7 @@ const CalendarWeeks = () => {
         </div>
 
         <div className="section description">
+            <p>{moment.weekdays(currentMoment.day())}</p>
             <p>Day {currentMoment.dayOfYear()}</p>
             <p>Week {currentMoment.week()}</p>
             <p>{adjustDate(currentMoment.startOf("week"))} - {adjustDate(currentMoment.endOf("week"))}</p>

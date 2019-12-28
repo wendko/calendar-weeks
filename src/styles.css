@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap');
+
 :root {
     --color-select-background-dark: rgb(245, 172, 199);
     --color-select-text-dark: rgb(55, 44, 61);
@@ -23,7 +25,7 @@
 
 body {
     margin: 0;
-    font-family: "Consolas";
+    font-family: "Ubuntu Mono", "Consolas", monospace, "Arial";
 }
 
 footer {
